@@ -16,19 +16,64 @@
     header {
       background: #232f3e;
       color: #fff;
-      padding: 20px;
+      padding: 28px 20px;
       text-align: center;
+    }
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 2rem;
+      color: #fff;
+    }
+    header .subtitle {
+      font-size: 1rem;
+      color: #ff9900;
+      margin: 0 0 10px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    header .contact {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    header .contact a {
+      color: #7ecfff;
+      text-decoration: none;
+    }
+    header .contact a:hover {
+      text-decoration: underline;
     }
     main {
       padding: 40px;
-      max-width: 800px;
+      max-width: 860px;
       margin: auto;
     }
-    h1, h2 {
+    h2 {
       color: #2c3e50;
+      border-bottom: 2px solid #ff9900;
+      padding-bottom: 4px;
+      margin-bottom: 16px;
     }
     .section {
       margin-bottom: 40px;
+    }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: baseline;
+    }
+    .job-title {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+    .job-date {
+      font-size: 0.88rem;
+      color: #666;
+    }
+    .job-company {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 4px;
     }
     footer {
       background: #232f3e;
@@ -40,8 +85,40 @@
       color: #0077cc;
       text-decoration: none;
     }
+    a:hover {
+      text-decoration: underline;
+    }
     ul {
       padding-left: 20px;
+      margin-top: 6px;
+    }
+    ul li {
+      margin-bottom: 4px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 8px 20px;
+    }
+    .skills-grid p {
+      margin: 4px 0;
+    }
+    .tag {
+      display: inline-block;
+      background: #e8f0fe;
+      color: #1a56db;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.8rem;
+      margin: 2px 2px 2px 0;
+    }
+    .sub-project {
+      margin-left: 16px;
+      margin-top: 6px;
+    }
+    .sub-project h4 {
+      margin: 10px 0 4px;
+      color: #2c3e50;
     }
   </style>
 </head>
@@ -49,98 +126,211 @@
 
 <header>
   <h1>Pooja Swarnkar</h1>
-  <p>DevOps Engineer | AWS Certified | Rajasthan</p>
-  <p><a href="mailto:poojasonii0206@gmail.com">poojasonii0206@gmail.com</a> | 8824675665</p>
-  <p><a href="https://www.linkedin.com/in/pooja-swarnkar-7a93b9285/" target="_blank">LinkedIn</a></p>
+  <p class="subtitle">DevOps Engineer &nbsp;|&nbsp; AWS Certified (1x)</p>
+  <p class="contact">
+    📍 Ahmedabad, Gujarat, India &nbsp;|&nbsp;
+    ✉️ <a href="mailto:poojasonii0206@gmail.com">poojasonii0206@gmail.com</a> &nbsp;|&nbsp;
+    📞 8824675665 &nbsp;|&nbsp;
+    <a href="https://www.linkedin.com/in/pooja-swarnkar-7a93b9285/" target="_blank">LinkedIn</a>
+  </p>
 </header>
 
 <main>
+
   <div class="section">
-    <h2>Summary</h2>
+    <h2>Professional Summary</h2>
     <p>
-      DevOps Engineer with 1 year of hands-on experience automating deployments, managing scalable infrastructure, and integrating monitoring systems. Skilled in AWS, Docker, Kubernetes, GitHub Actions, and Terraform. Proven ability to reduce deployment times, optimize cloud costs, and enhance system reliability.
+      DevOps Engineer with 2+ years of experience (including freelance projects) in building scalable cloud infrastructure,
+      automating CI/CD pipelines, and optimizing system performance. Improved deployment speed by 20% through automation and
+      workflow enhancements. Skilled in AWS, Docker, Kubernetes, Terraform, and monitoring tools. Focused on delivering
+      reliable, secure, and high-performing systems through innovation and automation excellence.
     </p>
   </div>
 
   <div class="section">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>BetterBugs (Company Product)</strong> — app.betterbugs.io<br/>
-        <ul>
-          <li>Designed cloud infrastructure using ECS Fargate, secured with Cloudflare.</li>
-          <li>Created complete CI/CD pipeline with GitHub Actions and AWS Secrets Manager.</li>
-          <li>Set up monitoring with Prometheus & Grafana, integrated CloudWatch for logs.</li>
-          <li>Automated alerting via AWS Lambda + SNS → Basecamp for real-time error reports.</li>
-          <li>Implemented image optimization pipeline using CloudFront + Lambda@Edge.</li>
-          <li>Reduced AWS bills by optimizing resource usage and moving apps to low-cost servers.</li>
-        </ul>
-      </li>
-      <br/>
-      <li><strong>Vintly (Client Project)</strong> — vintly.com<br/>
-        <ul>
-          <li>Maintained self-managed Kubernetes clusters on DigitalOcean droplets.</li>
-          <li>Resolved pod resource issues, monitored using Prometheus stack.</li>
-          <li>Enabled SQL DB backup automation using Snapshooter.</li>
-        </ul>
-      </li>
-      <br/>
-      <li><strong>Charlie (Health Sector)</strong><br/>
-        <ul>
-          <li>Dockerized backend APIs for scalable deployment.</li>
-          <li>Configured production Nginx with HTTPS and security headers.</li>
-        </ul>
-      </li>
-    </ul>
+    <h2>Technical Skills</h2>
+    <div class="skills-grid">
+      <p><strong>Operating Systems:</strong> Linux</p>
+      <p><strong>Version Control:</strong> Git, GitHub</p>
+      <p><strong>Cloud Platforms:</strong> AWS, DigitalOcean</p>
+      <p><strong>CI/CD Tools:</strong> GitHub Actions, Jenkins</p>
+      <p><strong>Containers &amp; Orchestration:</strong> Docker, Kubernetes, Helm</p>
+      <p><strong>Infrastructure as Code:</strong> Terraform</p>
+      <p><strong>Monitoring &amp; Logging:</strong> Prometheus, Grafana</p>
+      <p><strong>Databases:</strong> PostgreSQL, Redis, DragonflyDB</p>
+    </div>
   </div>
 
   <div class="section">
     <h2>Experience</h2>
-    <ul>
-      <li><strong>DevOps Engineer — Linearloop.io</strong> | June 2024 – Present
+
+    <div style="margin-bottom: 24px;">
+      <div class="job-header">
+        <span class="job-title">DevOps Engineer</span>
+        <span class="job-date">Sep 2025 – Present</span>
+      </div>
+      <div class="job-company">Ankpal, Ahmedabad</div>
+      <ul>
+        <li>Owned end-to-end environment lifecycle management (Dev, QA, UAT, Prod), supporting frequent and reliable releases.</li>
+        <li>Architected and implemented CI/CD pipelines across all environments, standardizing deployment processes and reducing manual intervention; improved deployment speed by 20%.</li>
+        <li>Planned and executed cross-account AWS RDS PostgreSQL migrations, handling schema validation, data consistency, and rollback strategies.</li>
+        <li>Administered PostgreSQL databases (self-hosted &amp; AWS RDS), covering high availability, backups, monitoring, and performance optimization.</li>
+        <li>Architected production setup using AWS ECS, improving scalability and uptime.</li>
+        <li>Collaborated with dev and QA teams to ensure smooth and reliable production releases.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <div class="job-header">
+        <span class="job-title">Freelance DevOps Engineer</span>
+        <span class="job-date">Jun 2025 – Aug 2025</span>
+      </div>
+      <div class="job-company">Ahmedabad</div>
+      <ul>
+        <li>Delivered DevOps solutions across multiple client projects with focus on automation, scalability, and reliability.</li>
+        <li>Built containerized deployments, CI/CD pipelines, and infrastructure using AWS &amp; Kubernetes.</li>
+        <li>Implemented secure secrets management and cost optimization strategies.</li>
+      </ul>
+      <div class="sub-project">
+        <h4>NoticeBot — GST Litigation Platform</h4>
         <ul>
-          <li>Led the DevOps setup for BetterBugs from scratch using ECS, Terraform, and GitHub Actions.</li>
-          <li>Self-hosted SonarQube with PostgreSQL for code quality checks across microservices.</li>
-          <li>Created Infrastructure as Code (IaC) with Terraform modules for reusability and scalability.</li>
-          <li>Integrated code analysis, security scanning, and deployment validation in CI/CD.</li>
-          <li>Built centralized logging and alerting solutions using CloudWatch, Lambda and Prometheus-Grafana</li>
+          <li>Deployed frontend &amp; backend on EC2 using Docker.</li>
+          <li>Optimized Docker image size for faster builds &amp; deployments.</li>
         </ul>
-      </li>
-      <br/>
-      <li><strong>DevOps Intern — Sudowall</strong> | Jan 2024 – Mar 2024
+        <h4>Inphynitics</h4>
         <ul>
-          <li>Configured Jenkins with GitHub and DockerHub using webhooks for CI/CD flow.</li>
-          <li>Deployed Grafana + Prometheus stack using Docker Compose for infrastructure monitoring.</li>
-          <li>Explored AWS services: IAM, EC2, S3, VPC, CloudWatch, SNS, and Lambda.</li>
+          <li>Deployed backend services (Java, NestJS) on AWS.</li>
+          <li>Hosted frontend on S3, improving availability and reducing cost.</li>
         </ul>
-      </li>
-    </ul>
+        <h4>HolidayTribe.ai</h4>
+        <ul>
+          <li>Managed Kubernetes deployments (prod &amp; non-prod) using Helm.</li>
+          <li>Implemented GitOps (FluxCD) for automated infrastructure updates.</li>
+          <li>Built custom Jenkins pipelines for microservices.</li>
+          <li>Managed infrastructure using Terraform.</li>
+          <li>Integrated AWS Secrets Manager.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <div class="job-header">
+        <span class="job-title">DevOps Engineer</span>
+        <span class="job-date">Jun 2024 – Jun 2025</span>
+      </div>
+      <div class="job-company">Linearloop.io, Ahmedabad</div>
+      <ul>
+        <li>Built and maintained automated CI/CD pipelines using GitHub Actions and Jenkins.</li>
+        <li>Implemented infrastructure as code (IaC) with Terraform on AWS.</li>
+        <li>Integrated Prometheus and Grafana for proactive system monitoring.</li>
+        <li>Reduced cloud costs by improving resource utilization and scaling configurations.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 8px;">
+      <div class="job-header">
+        <span class="job-title">DevOps Intern</span>
+        <span class="job-date">Jan 2024 – Mar 2024</span>
+      </div>
+      <div class="job-company">Sudowall, Udaipur</div>
+      <ul>
+        <li>Configured GitHub–Jenkins integration for automated build and deployment pipelines.</li>
+        <li>Deployed Prometheus and Grafana using Docker Compose for efficient monitoring.</li>
+        <li>Worked with AWS services including IAM, VPC, EC2, S3, SNS, and CloudWatch.</li>
+      </ul>
+    </div>
   </div>
 
   <div class="section">
-    <h2>Skills</h2>
-    <p>
-      <strong>Cloud Platforms:</strong> AWS, DigitalOcean<br/>
-      <strong>Containers:</strong> Docker, Kubernetes (Self-managed & EKS)<br/>
-      <strong>CI/CD:</strong> GitHub Actions, Jenkins<br/>
-      <strong>Monitoring:</strong> CloudWatch, Prometheus, Grafana<br/>
-      <strong>IaC:</strong> Terraform<br/>
-      <strong>Others:</strong> Linux, Git, SonarQube, Nginx
-    </p>
+    <h2>Projects</h2>
+
+    <div style="margin-bottom: 24px;">
+      <div class="job-header">
+        <span class="job-title">Ankpal</span>
+        <span class="job-date">Sep 2025 – Present</span>
+      </div>
+      <div class="job-company">DevOps Engineer</div>
+      <ul>
+        <li>Managed multi-environment releases (Dev, QA, UAT) ensuring stability and consistency.</li>
+        <li>Architected production setup using AWS ECS, improving scalability and reliability.</li>
+        <li>Planned and executed RDS PostgreSQL migration strategy including snapshot-based migration, validation checks, and rollback readiness.</li>
+        <li>Set up automated backups, monitoring, and alerting for PostgreSQL to ensure production reliability.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <div class="job-header">
+        <span class="job-title">BetterBugs (Company Product)</span>
+        <span class="job-date">Aug 2024 – Jun 2025</span>
+      </div>
+      <div class="job-company">Founding DevOps Engineer &nbsp;|&nbsp; <a href="https://app.betterbugs.io" target="_blank">app.betterbugs.io</a></div>
+      <ul>
+        <li>Built complete infrastructure and IaC using AWS ECS, Docker, and Terraform.</li>
+        <li>Migrated Redis to DragonflyDB with zero downtime; optimized Docker image builds.</li>
+        <li>Secured infrastructure with Cloudflare for DDoS protection.</li>
+        <li>Reduced AWS monthly costs through cost-optimization strategies.</li>
+        <li>Integrated AWS Secrets Manager into GitHub Actions workflows.</li>
+        <li>Implemented monitoring using Prometheus &amp; Grafana for enhanced API visibility.</li>
+        <li>Automated AWS alerts via Lambda and SNS to Basecamp for critical issues.</li>
+        <li>Supported SOC 2 compliance activities.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 24px;">
+      <div class="job-header">
+        <span class="job-title">Vintly (Client Project)</span>
+        <span class="job-date">Jul 2024 – Nov 2024</span>
+      </div>
+      <div class="job-company"><a href="https://www.vintly.com" target="_blank">www.vintly.com</a></div>
+      <ul>
+        <li>Managed Kubernetes infrastructure, resolved pod issues, and optimized resources.</li>
+        <li>Automated backups via SnapShooter on DigitalOcean.</li>
+        <li>Deployed microservices using Helm charts for repeatable, reliable deployments.</li>
+        <li>Automated CI/CD pipelines via Jenkins, ensuring smooth multi-environment integrations.</li>
+      </ul>
+    </div>
+
+    <div style="margin-bottom: 8px;">
+      <div class="job-header">
+        <span class="job-title">Charlie (Health Sector Project)</span>
+        <span class="job-date">Jul 2024</span>
+      </div>
+      <ul>
+        <li>Dockerized backend API and hosted production-ready server instances.</li>
+        <li>Ensured stable and secure production deployment environments.</li>
+      </ul>
+    </div>
   </div>
 
   <div class="section">
     <h2>Education</h2>
-    <p>B.Tech in Computer Science, Geetanjali Institute of Technology, Udaipur — CGPA: 9.1</p>
+    <p>
+      <strong>B.Tech in Computer Science</strong><br/>
+      Geetanjali Institute of Technology, Udaipur &nbsp;|&nbsp; 2024<br/>
+      CGPA: 9.1 / 10
+    </p>
   </div>
 
   <div class="section">
-    <h2>Certification</h2>
-    <p>AWS Certified Cloud Practitioner — Amazon Web Services</p>
+    <h2>Certifications</h2>
+    <p>
+      <strong>AWS Certified Cloud Practitioner</strong> — Amazon Web Services<br/>
+      <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/4440f705f7e44148acd17289cd49eac1" target="_blank">AWS Verification Link</a>
+    </p>
   </div>
+
+  <div class="section">
+    <h2>Declaration</h2>
+    <p>
+      I hereby declare that the above information is true and accurate to the best of my knowledge.<br/>
+      <em>— Pooja Swarnkar</em>
+    </p>
+  </div>
+
 </main>
 
 <footer>
-  <p>© 2024 Pooja Swarnkar</p>
+  <p>© 2026 Pooja Swarnkar</p>
 </footer>
 
 </body>
