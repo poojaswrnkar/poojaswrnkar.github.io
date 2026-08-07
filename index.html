@@ -127,15 +127,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s,bor
 nav.stuck{background:rgba(244,242,237,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 body[data-zone="dark"] nav.stuck{background:rgba(20,21,25,.86);border-bottom-color:var(--line-dark)}
 .nav-in{max-width:var(--maxw);margin:0 auto;padding:16px var(--pad);display:flex;justify-content:space-between;align-items:center;gap:16px}
-.brand{font-family:var(--mono);font-size:.76rem;font-weight:500;letter-spacing:.03em}
+.brand{font-family:var(--mono);font-size:.76rem;font-weight:500;letter-spacing:.03em;color:var(--ink);transition:color .3s}
+body[data-zone="dark"] .brand{color:var(--paper-on-dark)}
 .brand span{color:var(--mute)}
 body[data-zone="dark"] .brand span{color:var(--mute-on-dark)}
 .nav-l{display:flex;gap:clamp(16px,2.4vw,30px);font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.03em}
-.nav-l a{opacity:.68;transition:opacity .2s,color .2s}
+.nav-l a{color:var(--ink);opacity:.68;transition:opacity .2s,color .2s}
+body[data-zone="dark"] .nav-l a{color:var(--paper-on-dark)}
 .nav-l a:hover{opacity:1;color:var(--copper)}
 body[data-zone="dark"] .nav-l a:hover{color:var(--amber)}
 @media(max-width:760px){.nav-l a:not(.nav-cta){display:none}}
 .nav-cta{border:1px solid var(--line-strong);padding:6px 14px;opacity:1!important}
+body[data-zone="dark"] .nav-cta{border-color:var(--line-dark-strong)}
 .nav-cta:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 body[data-zone="dark"] .nav-cta:hover{background:var(--paper-on-dark);color:var(--dark);border-color:var(--paper-on-dark)}
 
@@ -143,8 +146,6 @@ body[data-zone="dark"] .nav-cta:hover{background:var(--paper-on-dark);color:var(
    HERO — the whole pitch on one screen
    ================================================================ */
 .hero{padding:clamp(96px,14vh,132px) 0 clamp(48px,6vw,64px)}
-.hero-top{display:grid;grid-template-columns:auto 1fr;gap:clamp(20px,4vw,40px);align-items:start}
-@media(max-width:640px){.hero-top{grid-template-columns:1fr}}
 .hero-name{font-size:clamp(2.6rem,6.4vw,4.6rem);line-height:.98;letter-spacing:-.015em}
 .hero-role{
   font-family:var(--mono);font-size:.88rem;font-weight:500;color:var(--mute);
@@ -313,12 +314,9 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
 <header class="hero" id="top" data-zone="light">
   <div class="wrap">
     <div class="hero-top">
-      <div></div>
-      <div>
-        <h1 class="hero-name">Pooja Swarnkar</h1>
-        <p class="hero-role">Infrastructure &amp; DevOps Engineer &nbsp;·&nbsp; <em>AWS Certified</em> &nbsp;·&nbsp; Ahmedabad, India</p>
-        <p class="hero-role" style="margin-top:6px">2+ years in production infrastructure — not personal projects or tutorials.</p>
-      </div>
+      <h1 class="hero-name">Pooja Swarnkar</h1>
+      <p class="hero-role">Infrastructure &amp; DevOps Engineer &nbsp;·&nbsp; <em>AWS Certified</em> &nbsp;·&nbsp; Ahmedabad, India</p>
+      <p class="hero-role" style="margin-top:6px">2+ years in production infrastructure — not personal projects or tutorials.</p>
     </div>
 
     <div class="hero-copy">
@@ -376,7 +374,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Version control<span>Foundation</span></h3>
           <div>
             <p>Branching discipline, small reviewable changes, and mandatory peer review before any change reaches production.</p>
-            <p class="tools"><span>Git</span><span>GitHub</span><span>Code review</span></p>
+            <p class="tools"><span>Git</span> <span>GitHub</span> <span>Code review</span></p>
           </div>
         </div>
       </article>
@@ -387,7 +385,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Linux &amp; networking<span>Foundation</span></h3>
           <div>
             <p>Operating-system and network fundamentals: processes, services, permissions, and the path a request takes from client to server.</p>
-            <p class="tools"><span>Linux</span><span>Bash</span><span>systemd</span><span>Nginx</span><span>SSH</span></p>
+            <p class="tools"><span>Linux</span> <span>Bash</span> <span>systemd</span> <span>Nginx</span> <span>SSH</span></p>
           </div>
         </div>
       </article>
@@ -398,7 +396,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Cloud infrastructure<span>AWS Certified</span></h3>
           <div>
             <p>Identity, networking, compute and storage as production primitives — the same fundamentals since the first environment I stood up, still true at scale.</p>
-            <p class="tools"><span>AWS</span><span>IAM</span><span>VPC</span><span>EC2</span><span>S3</span><span>CloudWatch</span></p>
+            <p class="tools"><span>AWS</span> <span>IAM</span> <span>VPC</span> <span>EC2</span> <span>S3</span> <span>CloudWatch</span></p>
           </div>
         </div>
       </article>
@@ -409,7 +407,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Delivery &amp; automation<span>CI/CD · IaC · GitOps</span></h3>
           <div>
             <p>Pipelines that run unattended, infrastructure defined and reviewed as code, and secrets kept out of repositories entirely.</p>
-            <p class="tools"><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>FluxCD</span><span>Jenkins</span><span>GitHub Actions</span></p>
+            <p class="tools"><span>Terraform</span> <span>Docker</span> <span>Kubernetes</span> <span>Helm</span> <span>FluxCD</span> <span>Jenkins</span> <span>GitHub Actions</span></p>
           </div>
         </div>
       </article>
@@ -420,7 +418,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Systems &amp; data<span>Architecture &amp; reliability</span></h3>
           <div>
             <p>Production architecture ownership, including <b>a cross-account PostgreSQL migration</b> — snapshot strategy, schema validation, rollback rehearsed and never triggered.</p>
-            <p class="tools"><span>AWS ECS</span><span>RDS</span><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>High availability</span><span>SOC 2</span></p>
+            <p class="tools"><span>AWS ECS</span> <span>RDS</span> <span>PostgreSQL</span> <span>MongoDB</span> <span>Redis</span> <span>High availability</span> <span>SOC 2</span></p>
           </div>
         </div>
       </article>
@@ -437,7 +435,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>AI infrastructure<span>Model gateway</span></h3>
           <div>
             <p>Every model behind <b>a single LiteLLM endpoint</b>, credentials scoped per environment, latency and traffic tracked, and per-model health alerts so downtime is noticed in seconds.</p>
-            <p class="tools"><span>LiteLLM</span><span>Gateway routing</span><span>Scoped API keys</span><span>Alerting</span></p>
+            <p class="tools"><span>LiteLLM</span> <span>Gateway routing</span> <span>Scoped API keys</span> <span>Alerting</span></p>
           </div>
         </div>
       </article>
@@ -448,7 +446,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>On-premise inference<span>GPU serving</span></h3>
           <div>
             <p>Open-weight models served on owned, on-premise hardware — <b>no data leaves the network</b>. Engine choice tracks GPU VRAM: llama.cpp where memory was tight, vLLM once it wasn't, SGLang benchmarked throughout.</p>
-            <p class="tools"><span>vLLM</span><span>SGLang</span><span>llama.cpp</span><span>LM Studio</span><span>RTX 6000 Ada</span><span>RTX PRO 6000 Blackwell</span><span>RTX A6000</span><span>L40S</span><span>Quantisation</span></p>
+            <p class="tools"><span>vLLM</span> <span>SGLang</span> <span>llama.cpp</span> <span>LM Studio</span> <span>RTX 6000 Ada</span> <span>RTX PRO 6000 Blackwell</span> <span>RTX A6000</span> <span>L40S</span> <span>Quantisation</span></p>
           </div>
         </div>
       </article>
@@ -473,10 +471,10 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
         <ul>
           <li>Own environment lifecycle across Dev, QA, UAT and Production, supporting frequent, reliable releases.</li>
           <li>Standardised CI/CD across all environments — <b>~20% faster deployments</b>, far less manual intervention.</li>
-          <li>Architected production infrastructure on <b>AWS ECS</b> for scalability and uptime.</li>
+          <li>Architected production infrastructure on <b>AWS ECS/Fargate</b> (backend, ECR-managed images) and AWS CDN (frontend) for scalability and uptime.</li>
           <li>Planned and executed a <b>cross-account RDS PostgreSQL migration</b> with schema validation, consistency checks and rollback readiness.</li>
           <li>Administer PostgreSQL, MongoDB and Redis — high availability, backups, performance tuning.</li>
-          <li>Deployed multiple Qwen model families (2.5 and 3.5, in 27B and 35B variants) for on-premise inference across a <b>multi-GPU fleet</b> — RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S — matching inference engine to each card's VRAM.</li>
+          <li>Deployed multiple Qwen model families (2.5 and 3.5, in 27B and 35B variants) to power Ankpal's <b>in-product AI chatbot and other GenAI features</b>, served on-premise across a <b>multi-GPU fleet</b> — RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S — matching inference engine to each card's VRAM.</li>
           <li>Proxied a multi-model, multi-engine fleet through <b>LiteLLM on a single port</b>, with scoped keys and per-model uptime alerting.</li>
         </ul>
       </div>
@@ -546,21 +544,21 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <li>Prometheus + Grafana API observability; Lambda + SNS alerts to Basecamp.</li>
           <li>Supported <b>SOC 2</b> compliance evidence collection.</li>
         </ul>
-        <p class="tools"><span>ECS</span><span>Terraform</span><span>DragonflyDB</span><span>Cloudflare</span></p>
+        <p class="tools"><span>ECS</span> <span>Terraform</span> <span>DragonflyDB</span> <span>Cloudflare</span></p>
       </article>
 
       <article class="work">
         <div class="work-top">
-          <div><h3>On-prem model platform</h3><p class="role">Ankpal · internal AI infrastructure</p></div>
-          <span class="tlink">Private</span>
+          <div><h3>Ankpal ERP Platform</h3><p class="role">Cloud &amp; AI Infrastructure · fintech ERP platform</p></div>
+          <a class="tlink" href="https://erp.ankpal.com" target="_blank" rel="noopener">Visit ↗</a>
         </div>
         <ul>
-          <li>Multi-model Qwen fleet (2.5, 3.5 — 27B and 35B variants) across four GPU classes: RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S.</li>
-          <li>Engine chosen per card's VRAM — <b>llama.cpp</b> (via LM Studio) on 48GB cards, <b>vLLM</b> on 96GB cards, <b>SGLang</b> benchmarked alongside both.</li>
-          <li>On-premise inference — <b>no data leaves the perimeter</b>.</li>
-          <li>Single LiteLLM gateway with per-environment credentials and per-model alerting.</li>
+          <li>Own the platform's full AWS infrastructure across Dev, QA, UAT and Production — backend on <b>ECS/Fargate</b> with ECR-managed images, frontend served via AWS CDN.</li>
+          <li>Deploy and operate the <b>GPU model-serving infrastructure</b> behind the platform's in-product AI chatbot and other GenAI features — a multi-model Qwen fleet (2.5, 3.5 — 27B and 35B variants) across four GPU classes: RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S.</li>
+          <li>Inference engine chosen per card's VRAM — <b>llama.cpp</b> (via LM Studio) on 48GB cards, <b>vLLM</b> on 96GB cards, <b>SGLang</b> benchmarked alongside both.</li>
+          <li>All models served on-premise through a single LiteLLM gateway — <b>no data leaves the perimeter</b>, a deliberate fit for a fintech platform's compliance posture.</li>
         </ul>
-        <p class="tools"><span>vLLM</span><span>SGLang</span><span>llama.cpp</span><span>LiteLLM</span></p>
+        <p class="tools"><span>ECS</span> <span>ECR</span> <span>Fargate</span> <span>CloudFront</span> <span>vLLM</span> <span>SGLang</span> <span>llama.cpp</span> <span>LiteLLM</span></p>
       </article>
 
       <article class="work">
@@ -573,7 +571,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <li>Microservice releases via <b>Helm charts</b>, consistent across environments.</li>
           <li>Automated database backups via SnapShooter.</li>
         </ul>
-        <p class="tools"><span>Kubernetes</span><span>Helm</span><span>DigitalOcean</span></p>
+        <p class="tools"><span>Kubernetes</span> <span>Helm</span> <span>DigitalOcean</span></p>
       </article>
 
       <article class="work">
@@ -586,7 +584,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <li><b>GitOps with FluxCD</b> — infrastructure reconciled automatically from Git.</li>
           <li>Custom Jenkins pipelines per microservice; Secrets Manager on Terraform-managed infra.</li>
         </ul>
-        <p class="tools"><span>FluxCD</span><span>GitOps</span><span>Terraform</span></p>
+        <p class="tools"><span>FluxCD</span> <span>GitOps</span> <span>Terraform</span></p>
       </article>
     </div>
   </div>
@@ -637,12 +635,12 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
     </div>
 
     <div class="idx" data-rv>
-      <div class="r"><span class="rk">Version control</span><span class="rv"><span>Git</span><span>GitHub</span><span>Code review</span></span></div>
-      <div class="r"><span class="rk">Linux &amp; networking</span><span class="rv"><span>Linux</span><span>Bash</span><span>systemd</span><span>Nginx</span><span>SSH</span></span></div>
-      <div class="r"><span class="rk">Cloud</span><span class="rv"><span>AWS</span><span>GCP</span><span>DigitalOcean</span><span>AceCloud</span></span></div>
-      <div class="r"><span class="rk">Delivery &amp; IaC</span><span class="rv"><span>Terraform</span><span>Docker</span><span>Kubernetes</span><span>Helm</span><span>FluxCD</span><span>Jenkins</span><span>GitHub Actions</span><span>Cloudflare</span></span></div>
-      <div class="r"><span class="rk">Data &amp; reliability</span><span class="rv"><span>PostgreSQL</span><span>MongoDB</span><span>Redis</span><span>DragonflyDB</span><span>Prometheus</span><span>Grafana</span><span>SOC 2</span></span></div>
-      <div class="r"><span class="rk">AI infrastructure</span><span class="rv"><span>LiteLLM</span><span>vLLM</span><span>SGLang</span><span>llama.cpp</span><span>LM Studio</span><span>RTX 6000 Ada</span><span>RTX PRO 6000 Blackwell</span><span>RTX A6000</span><span>L40S</span><span>Quantisation</span></span></div>
+      <div class="r"><span class="rk">Version control</span><span class="rv"><span>Git</span> <span>GitHub</span> <span>Code review</span></span></div>
+      <div class="r"><span class="rk">Linux &amp; networking</span><span class="rv"><span>Linux</span> <span>Bash</span> <span>systemd</span> <span>Nginx</span> <span>SSH</span></span></div>
+      <div class="r"><span class="rk">Cloud</span><span class="rv"><span>AWS</span> <span>GCP</span> <span>DigitalOcean</span> <span>AceCloud</span></span></div>
+      <div class="r"><span class="rk">Delivery &amp; IaC</span><span class="rv"><span>Terraform</span> <span>Docker</span> <span>Kubernetes</span> <span>Helm</span> <span>FluxCD</span> <span>Jenkins</span> <span>GitHub Actions</span> <span>Cloudflare</span></span></div>
+      <div class="r"><span class="rk">Data &amp; reliability</span><span class="rv"><span>PostgreSQL</span> <span>MongoDB</span> <span>Redis</span> <span>DragonflyDB</span> <span>Prometheus</span> <span>Grafana</span> <span>SOC 2</span></span></div>
+      <div class="r"><span class="rk">AI infrastructure</span><span class="rv"><span>LiteLLM</span> <span>vLLM</span> <span>SGLang</span> <span>llama.cpp</span> <span>LM Studio</span> <span>RTX 6000 Ada</span> <span>RTX PRO 6000 Blackwell</span> <span>RTX A6000</span> <span>L40S</span> <span>Quantisation</span></span></div>
     </div>
 
     <div class="creds" data-rv>
