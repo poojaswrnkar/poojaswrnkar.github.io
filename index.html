@@ -396,7 +396,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Cloud infrastructure<span>AWS Certified</span></h3>
           <div>
             <p>Identity, networking, compute and storage as production primitives — the same fundamentals since the first environment I stood up, still true at scale.</p>
-            <p class="tools"><span>AWS</span> <span>IAM</span> <span>VPC</span> <span>EC2</span> <span>S3</span> <span>CloudWatch</span></p>
+            <p class="tools"><span>AWS</span> <span>IAM</span> <span>VPC</span> <span>EC2</span> <span>S3</span> <span>ALB</span> <span>NAT Gateway</span> <span>CloudWatch</span></p>
           </div>
         </div>
       </article>
@@ -407,7 +407,7 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
           <h3>Delivery &amp; automation<span>CI/CD · IaC · GitOps</span></h3>
           <div>
             <p>Pipelines that run unattended, infrastructure defined and reviewed as code, and secrets kept out of repositories entirely.</p>
-            <p class="tools"><span>Terraform</span> <span>Docker</span> <span>Kubernetes</span> <span>Helm</span> <span>FluxCD</span> <span>Jenkins</span> <span>GitHub Actions</span></p>
+            <p class="tools"><span>Terraform</span> <span>Docker</span> <span>Kubernetes</span> <span>Helm</span> <span>FluxCD</span> <span>Jenkins</span> <span>GitHub Actions</span> <span>AWS OIDC</span></p>
           </div>
         </div>
       </article>
@@ -470,11 +470,12 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
         <p class="co">Ankpal · Ahmedabad</p>
         <ul>
           <li>Own environment lifecycle across Dev, QA, UAT and Production, supporting frequent, reliable releases.</li>
-          <li>Standardised CI/CD across all environments — <b>~20% faster deployments</b>, far less manual intervention.</li>
           <li>Architected production infrastructure on <b>AWS ECS/Fargate</b> (backend, ECR-managed images) and AWS CDN (frontend) for scalability and uptime.</li>
-          <li>Planned and executed a <b>cross-account RDS PostgreSQL migration</b> with schema validation, consistency checks and rollback readiness.</li>
+          <li>Provisioned the production API stack with <b>Terraform</b>: VPC networking, Fargate tasks in private subnets, an <b>ALB with HTTPS via ACM</b>, ECR, IAM, Secrets Manager and CloudWatch.</li>
+          <li>Standardised GitHub Actions CI/CD across all four environments for <b>~20% faster deployments</b>, using <b>AWS OIDC federation</b> instead of static credentials, scoped IAM permissions, health-check rolling deployments and automatic rollback.</li>
+          <li>Planned and executed a <b>zero-downtime, cross-account RDS PostgreSQL migration</b>: snapshot-based cutover, schema and consistency validation, and a rehearsed rollback.</li>
           <li>Administer PostgreSQL, MongoDB and Redis — high availability, backups, performance tuning.</li>
-          <li>Deployed multiple Qwen model families (2.5 and 3.5, in 27B and 35B variants) to power Ankpal's <b>in-product AI chatbot and other GenAI features</b>, served on-premise across a <b>multi-GPU fleet</b> — RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S — matching inference engine to each card's VRAM.</li>
+          <li>Deployed multiple Qwen model families (2.5, 3.5, and 3.6, in 27B and 35B variants) to power Ankpal's <b>in-product AI chatbot and other GenAI features</b>, served on-premise across a <b>multi-GPU fleet</b> — RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S — matching inference engine to each card's VRAM.</li>
           <li>Proxied a multi-model, multi-engine fleet through <b>LiteLLM on a single port</b>, with scoped keys and per-model uptime alerting.</li>
         </ul>
       </div>
@@ -501,9 +502,9 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
         <ul>
           <li>Built and maintained CI/CD in GitHub Actions and Jenkins across multiple products.</li>
           <li>Implemented <b>Infrastructure as Code</b> with Terraform on AWS for repeatable provisioning.</li>
-          <li>Integrated <b>Prometheus and Grafana</b> for proactive observability.</li>
+          <li>Integrated <b>Prometheus and Grafana</b> for proactive observability, with Lambda and SNS alerting.</li>
           <li>Reduced cloud spend through utilisation audits and right-sizing.</li>
-          <li>Spearheaded <b>BetterBugs</b> infrastructure from scratch — ECS, Docker, Terraform, Cloudflare, SOC 2 support.</li>
+          <li>Spearheaded <b>BetterBugs</b> infrastructure from scratch: ECS, ECR, Docker and Terraform, with backends in <b>private subnets</b> behind an ALB, a NAT Gateway for outbound traffic, Cloudflare, and SOC 2 support.</li>
         </ul>
       </div>
     </article>
@@ -515,8 +516,8 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
         <p class="co">Sudowall · Udaipur</p>
         <ul>
           <li>Configured GitHub–Jenkins integration for automated build and deployment.</li>
-          <li>Deployed a Prometheus + Grafana monitoring stack via Docker Compose.</li>
-          <li>Hands-on with core AWS: IAM, VPC, EC2, S3, SNS, CloudWatch.</li>
+          <li>Containerised applications with <b>Docker and Docker Compose</b>, including a Prometheus + Grafana monitoring stack.</li>
+          <li>Hands-on with core AWS: EC2, S3, IAM, SNS, CloudWatch, and VPC networking with security groups and NACLs as firewalls.</li>
         </ul>
       </div>
     </article>
@@ -539,12 +540,13 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
         </div>
         <ul>
           <li>Entire cloud estate <b>from an empty account</b> — ECS, Docker, Terraform, full IaC coverage.</li>
+          <li>Backend services in <b>private subnets</b> behind an ALB, with a NAT Gateway for outbound traffic only.</li>
           <li><b>Zero-downtime Redis → DragonflyDB</b> migration.</li>
           <li>Cloudflare DDoS protection; Secrets Manager wired into GitHub Actions.</li>
           <li>Prometheus + Grafana API observability; Lambda + SNS alerts to Basecamp.</li>
           <li>Supported <b>SOC 2</b> compliance evidence collection.</li>
         </ul>
-        <p class="tools"><span>ECS</span> <span>Terraform</span> <span>DragonflyDB</span> <span>Cloudflare</span></p>
+        <p class="tools"><span>ECS</span> <span>Terraform</span> <span>VPC</span> <span>DragonflyDB</span> <span>Cloudflare</span></p>
       </article>
 
       <article class="work">
@@ -554,16 +556,17 @@ footer{padding:24px 0 28px;border-top:1px solid var(--line-dark);margin-top:clam
         </div>
         <ul>
           <li>Own the platform's full AWS infrastructure across Dev, QA, UAT and Production — backend on <b>ECS/Fargate</b> with ECR-managed images, frontend served via AWS CDN.</li>
-          <li>Deploy and operate the <b>GPU model-serving infrastructure</b> behind the platform's in-product AI chatbot and other GenAI features — a multi-model Qwen fleet (2.5, 3.5 — 27B and 35B variants) across four GPU classes: RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S.</li>
+          <li>Deploy and operate the <b>GPU model-serving infrastructure</b> behind the platform's in-product AI chatbot and other GenAI features — a multi-model Qwen fleet (2.5, 3.5 and 3.6 — 27B and 35B variants) across four GPU classes: RTX 6000 Ada, RTX PRO 6000 Blackwell, RTX A6000 and L40S.</li>
           <li>Inference engine chosen per card's VRAM — <b>llama.cpp</b> (via LM Studio) on 48GB cards, <b>vLLM</b> on 96GB cards, <b>SGLang</b> benchmarked alongside both.</li>
           <li>All models served on-premise through a single LiteLLM gateway — <b>no data leaves the perimeter</b>, a deliberate fit for a fintech platform's compliance posture.</li>
+          <li>Production API stack defined in <b>Terraform</b> (VPC, private-subnet Fargate tasks, ALB with HTTPS via ACM) and deployed by GitHub Actions over <b>AWS OIDC</b>, with automatic rollback.</li>
         </ul>
-        <p class="tools"><span>ECS</span> <span>ECR</span> <span>Fargate</span> <span>CloudFront</span> <span>vLLM</span> <span>SGLang</span> <span>llama.cpp</span> <span>LiteLLM</span></p>
+        <p class="tools"><span>ECS</span> <span>ECR</span> <span>Fargate</span> <span>CloudFront</span> <span>Terraform</span> <span>vLLM</span> <span>SGLang</span> <span>llama.cpp</span> <span>LiteLLM</span></p>
       </article>
 
       <article class="work">
         <div class="work-top">
-          <div><h3>Vintly</h3><p class="role">DevOps engineer</p></div>
+          <div><h3>Vintly</h3><p class="role">DevOps engineer · via Linearloop.io</p></div>
           <a class="tlink" href="https://www.vintly.com" target="_blank" rel="noopener">Visit ↗</a>
         </div>
         <ul>
